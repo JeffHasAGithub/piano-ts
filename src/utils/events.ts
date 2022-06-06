@@ -1,4 +1,4 @@
-type Signal = "keydown" | "keyup";
+type Signal = "keydown" | "keyup" | "keypress";
 type Callback = () => void;
 
 type KeyEvent = {
@@ -12,6 +12,7 @@ type Events = {
 const events: Events = {
 	"keydown": {},
 	"keyup": {},
+	"keypress": {},
 };
 
 export function addCallback(sig: Signal, kc: number, cb: Callback) {

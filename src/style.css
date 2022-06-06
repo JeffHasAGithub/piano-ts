@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Italianno&display=swap');
+
 * {
 	margin: 0;
 	padding: 0;
@@ -6,49 +8,103 @@
 }
 
 html {
+	--primary-color: #2A2A3C;
+	--shadow-color: #808080;
+	--accent-color: #B7B7CD;
+
+	min-height: 100vh;
+
 	font-size: 8px;
+
+	background-color: var(--primary-color);
+}
+
+body {
+	height: 100vh;
+
+	display: flex !important;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: space-between;
+}
+
+header {
+	padding: 8rem;
+
+	font-family: 'Italianno', cursive;
+	font-size: 8rem;
+	text-align: center;
+
+	color: white;
 }
 
 main {
-	height: 100vh;
+	max-height: 100vh;
 
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	gap: 3rem;
+	gap: 5rem;
 }
 
-.black > p {
-	position: absolute;
-	right: calc(100% / 3);
-	bottom: 20%;
+footer {
+	padding: 12rem;
+
+	font-family: 'Italianno', cursive;
+	font-size: 2.5rem;
+	text-align: center;
+
+	color: white;
+	
+	display: flex;
+	justify-content: space-evenly;
+	gap: 1rem;
 }
 
-.white > p {
-	position: absolute;
-	right: calc((100% / 2) - .5ch);
-	bottom: 20%;
+a {
+	text-decoration: none;
+	color: var(--accent-color);
 }
 
+.octaves {
+	white-space: nowrap;
+}
+
+/* OCTAVE */
 .octave {
-  padding: 2em;
+  padding: 1em 2em;
 
   border: 1px solid black;
   border-radius: 5px;
 
+	box-shadow: 0 6px 0 0 var(--shadow-color);
   background-color: white;
+
+	cursor: pointer;
+	transition: transform .05s ease, box-shadow .05s ease;
 }
 
+.oclick {
+	box-shadow: none;
+	transform: translateY(6px);
+}
+
+.octave:not(.oclick):hover {
+	box-shadow: 0 6px 0 0 var(--accent-color);
+}
+
+/* PIANO */
 .piano {
 	height: 30vh;
+	white-space: nowrap;
 }
 
 .pkey {
   border: 1px solid black;
   border-radius: 5px;
 
-	box-shadow: 0 12px 0 0 gray;
+	box-shadow: 0 12px 0 0 var(--shadow-color);
 
 	cursor: pointer;
 	position: relative;
@@ -66,12 +122,19 @@ main {
 }
 
 .white:hover {
-	box-shadow: 0 12px 0 0 lightblue;
+	box-shadow: 0 12px 0 0 var(--accent-color);
 }
 
 .white.pclick {
 	box-shadow: none;
 	transform: translateY(12px);
+}
+
+
+.white > p {
+	position: absolute;
+	right: calc((100% / 2) - .5ch);
+	bottom: 20%;
 }
 
 .black {
@@ -89,7 +152,7 @@ main {
 }
 
 .black:hover {
-	box-shadow: 0 12px 0 0 lightblue;
+	box-shadow: 0 12px 0 0 var(--accent-color);
 }
 
 .black.pclick {
@@ -97,6 +160,14 @@ main {
 	transform: translate(-30px, 2px);
 }
 
-.oclick {
-  background-color: green;
+.black > p {
+	position: absolute;
+	right: calc(100% / 3);
+	bottom: 20%;
+}
+
+@media only screen and (max-width: 600px) {
+	footer {
+		flex-direction: column;
+	}
 }
