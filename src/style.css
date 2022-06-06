@@ -1,0 +1,102 @@
+* {
+	margin: 0;
+	padding: 0;
+
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 8px;
+}
+
+main {
+	height: 100vh;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 3rem;
+}
+
+.black > p {
+	position: absolute;
+	right: calc(100% / 3);
+	bottom: 20%;
+}
+
+.white > p {
+	position: absolute;
+	right: calc((100% / 2) - .5ch);
+	bottom: 20%;
+}
+
+.octave {
+  padding: 2em;
+
+  border: 1px solid black;
+  border-radius: 5px;
+
+  background-color: white;
+}
+
+.piano {
+	height: 30vh;
+}
+
+.pkey {
+  border: 1px solid black;
+  border-radius: 5px;
+
+	box-shadow: 0 12px 0 0 gray;
+
+	cursor: pointer;
+	position: relative;
+
+	transition: transform .1s ease, box-shadow .1s ease;
+}
+
+.white {
+  padding: 3em;
+
+  height: 100%;
+
+	color: black;
+  background-color: white;
+}
+
+.white:hover {
+	box-shadow: 0 12px 0 0 lightblue;
+}
+
+.white.pclick {
+	box-shadow: none;
+	transform: translateY(12px);
+}
+
+.black {
+  padding: 2em;
+
+  height: 15vh;
+
+	color: white;
+  background-color: black;
+
+  position: absolute;
+	z-index: 1;
+
+  transform: translate(-30px, -12px);
+}
+
+.black:hover {
+	box-shadow: 0 12px 0 0 lightblue;
+}
+
+.black.pclick {
+	box-shadow: none;
+	transform: translate(-30px, 2px);
+}
+
+.oclick {
+  background-color: green;
+}
